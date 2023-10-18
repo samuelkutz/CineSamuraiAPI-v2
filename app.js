@@ -2,15 +2,6 @@ import express from "express"
 import cors from "cors"
 import mongoose from "mongoose"
 import {config} from "dotenv"
-import UsuariosController from "./src/controllers/UsuariosController.js"
-import PrecoController from "./src/controllers/PrecoController.js"
-import EnderecoController from "./src/controllers/EnderecoController.js"
-import FilmesController from "./src/controllers/FilmesController.js"
-import IngressoController from "./src/controllers/IngressoController.js"
-import PoltronaController from "./src/controllers/PoltronaController.js"
-import ProgramacaoGeralController from "./src/controllers/ProgramacaoGeralController.js"
-import SalaController from "./src/controllers/SalaController.js"
-import SessaoController from "./src/controllers/SessaoController.js"
 
 config()
 
@@ -33,14 +24,3 @@ mongoose.connect(
             console.log(`Servidor disponível em http://localhost:${port}`)
         })
     ).catch((err) => console.log(err))
-
-
-UsuariosController.rotas(app)
-PrecoController.rotas(app)
-EnderecoController.rotas(app)
-FilmesController.rotas(app)
-IngressoController.rotas(app)
-PoltronaController.rotas(app)
-ProgramacaoGeralController.rotas(app)
-SalaController.rotas(app)
-SessaoController.rotas(app)
