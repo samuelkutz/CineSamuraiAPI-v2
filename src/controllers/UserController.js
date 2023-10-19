@@ -1,5 +1,4 @@
 import UserService from "../services/UserService.js"
-import mongoose from "mongoose"
 
 class UserController {
     static async create(req, res) {
@@ -9,7 +8,7 @@ class UserController {
             return res.status(400).send({ message: "Preencha todos os campos" })
         }
 
-        const user = await UserService.create(req.body) //connecting to MongoDB and creating an user (generates its _id)
+        const user = await UserService.create(req.body) // connecting to MongoDB and creating an user (generates its _id)
 
         if (!user) {
             return res.status(400).send({
@@ -41,39 +40,14 @@ class UserController {
     }
 
     static async findById(req, res) {
-        const id = req.params.id
-
-        if (!mongoose.Types.ObjectId.isValid(id)) {
-            return res.status(400).send({ message: "ID de usuário inválido" })
-        }
-
-        const user = await UserService.findById(id)
-
-        if (!user) {
-            return res.status(400).send({ message: "Usuário não encontrado" })
-        }
+        const user = req.user // user is added to req in the middlewares run before findByID 
 
         res.status(200).send(user)
     }
 
     static async update(req, res) {
         const { nome, email, cpf, senha, telefone } = req.body
-
-        if (!nome && !email && !cpf && !senha && !telefone) {
-            return res.status(400).send({ message: "Preencha pelo menos campo para atualizar" })
-        }
-
-        const id = req.params.id 
-
-        if (!mongoose.Types.ObjectId.isValid(id)) {
-            return res.status(400).send({ message: "ID de usuário inválido" })
-        }
-
-        const user = await UserService.findById(id)
-
-        if (!user) {
-            return res.status(400).send({ message: "Usuário não encontrado" })
-        }
+        const id = req.id // id is added to req in the middlewares run before findByID 
 
         await UserService.update(
             id, 
