@@ -8,4 +8,5 @@ route.post("/", UserController.create)
 route.get("/", UserController.findAll)
 route.get("/:id", validId, validUser,  UserController.findById)
 route.patch("/:id", validId, validUser, UserController.update)
+
 export default route

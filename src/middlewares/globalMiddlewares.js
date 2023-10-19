@@ -9,10 +9,9 @@ export const validId = (req, res, next) => {
             return res.status(400).send({ message: "ID de usuário inválido" })
         }
 
-        req.user = user
-
         next()
     } catch (err) {
+        console.log(err)
         res.status(500).send({ message: err.message })
     }
 }
@@ -27,11 +26,13 @@ export const validUser = async (req, res, next) => {
             return res.status(400).send({ message: "Usuário não encontrado" })
         }
 
+        // saving these infos in the req so we dont have to ask again to the DB 
         req.id = id
         req.user = user
 
         next()
     } catch (err) {
+        console.log(err)
         res.status(500).send({ message: err.message })
     }
 }

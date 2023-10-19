@@ -2,7 +2,7 @@ import UserService from "../services/UserService.js"
 
 class UserController {
     static async create(req, res) {
-            try {
+        try {
             const { nome, email, cpf, senha, telefone } = req.body
 
             if (!nome || !email || !cpf || !senha || !telefone) {
@@ -10,6 +10,7 @@ class UserController {
             }
 
             const user = await UserService.create(req.body) // connecting to MongoDB and creating an user (generates its _id)
+
 
             if (!user) {
                 return res.status(400).send({ message: "Erro ao criar usuário" })
@@ -27,6 +28,7 @@ class UserController {
                 }
             })
         } catch (err) {
+            console.log(err)
             res.status(500).send( { message: err.message })
         }
     }
@@ -41,6 +43,7 @@ class UserController {
 
             res.status(200).send(users)
         } catch (err) {
+            console.log(err)
             res.status(500).send({ message: err.message })
         }
     }
@@ -51,30 +54,12 @@ class UserController {
 
             res.status(200).send(user)
         } catch (err) {
+            console.error(err)
             res.status(500).send({ message: err.message })
         }
     }
 
     static async update(req, res) {
-        const { nome, email, cpf, senha, telefone } = req.body
-        
-        if (!nome && !email && !cpf && !senha && !telefone) {
-            return res.status(400).send({ message: "Preencha pelo menos um dos campos para atualizar" })
-        }
-        
-        const { id, user } = req // user will be used soon
-
-        await UserService.update(
-            id, 
-            nome, 
-            email, 
-            cpf, 
-            senha, 
-            telefone
-        )
-
-        res.send({message: "Usuário atualizado com sucesso!"})
-
         try {
             const { nome, email, cpf, senha, telefone } = req.body
         

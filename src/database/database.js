@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 function connectDatabase() {
   mongoose
-    .connect(process.env.DATABASE_URL, {
+    .connect(process.env.DATABASE_URI, { // note that dotenv needs to be imported ONLY where connectDatabase() runs
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })

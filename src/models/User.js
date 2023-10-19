@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import bcrypt from "bcrypt"
 
 const UserSchema = new mongoose.Schema({
     nome: {
@@ -8,16 +9,18 @@ const UserSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        lowercase: true
     },
     cpf: {
         type: String,
         required: true,
         unique: true
     },
-    senha : {
+    senha: {
         type: String,
-        required: true
+        required: true,
+        select: false // this is for the DB so it DOES NOT return the password for anyone
     },
     telefone: {
         type: String,
@@ -25,6 +28,11 @@ const UserSchema = new mongoose.Schema({
     }
 }, {
     versionKey: false
+})
+
+UserSchema.pre("save", async function(next) {
+    this.senha = await bcrypt.hash(this.senha, 10) // basic hash encryption
+    next()
 })
 
 export const User = mongoose.model("User", UserSchema)
