@@ -1,7 +1,7 @@
 import { User } from "../models/User.js";
 
 class UserService {
-    static create(body) { 
+    static create(body) {
         return User.create(body)
     }
 
@@ -13,6 +13,19 @@ class UserService {
         return User.findById(id)
     }
 
+    static update(
+        id,
+        nome,
+        email,
+        cpf,
+        senha,
+        telefone
+    ) {
+        return User.findOneAndUpdate(
+            { _id: id }, //inside MongoDB, the id is called _id
+            { nome, email, cpf, senha, telefone }
+        )
+    }
 }
 
 export default UserService

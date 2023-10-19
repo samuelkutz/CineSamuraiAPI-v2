@@ -55,6 +55,37 @@ class UserController {
 
         res.status(200).send(user)
     }
+
+    static async update(req, res) {
+        const { nome, email, cpf, senha, telefone } = req.body
+
+        if (!nome && !email && !cpf && !senha && !telefone) {
+            return res.status(400).send({ message: "Preencha pelo menos campo para atualizar" })
+        }
+
+        const id = req.params.id 
+
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).send({ message: "ID de usuário inválido" })
+        }
+
+        const user = await UserService.findById(id)
+
+        if (!user) {
+            return res.status(400).send({ message: "Usuário não encontrado" })
+        }
+
+        await UserService.update(
+            id, 
+            nome, 
+            email, 
+            cpf, 
+            senha, 
+            telefone
+        )
+
+        res.send({message: "Usuário atualizado com sucesso!"})
+    }
 }
 
 export default UserController
