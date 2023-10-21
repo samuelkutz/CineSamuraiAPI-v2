@@ -26,6 +26,10 @@ class UserService {
             { nome, email, cpf, senha, telefone }
         )
     }
+
+    static delete(id) {
+        return User.findByIdAndDelete(id)
+    }
 }
 
 export default UserService

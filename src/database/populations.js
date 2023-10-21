@@ -1,47 +1,43 @@
-//Formato json 
-
-//Cadastro usuarios   
-[
+  export const usuarios = [
   {
       "nome": "João",
       "email": "joao.silva@gmail.com",
       "cpf": "01256685202",
-      "senha_cadastro": "12345678",
+      "senha": "12345678",
       "telefone": "11123456781"
   },
   {
       "nome": "Maria",
       "email": "maria.santos@hotmail.com",
       "cpf": "12663358995",
-      "senha_cadastro": "12568749",
+      "senha": "12568749",
       "telefone": "21987654321"
   },
   {
       "nome": "Pedro",
       "email": "pedro.oliveira@yahoo.com.br",
       "cpf": "45669985636",
-      "senha_cadastro": "31456786",
+      "senha": "31456786",
       "telefone": "8189012345"
   },
   {
       "nome": "Ana",
       "email": "ana.sousa@yahoo.com.br",
       "cpf": "36931176080",
-      "senha_cadastro": "23456789",
+      "senha": "23456789",
       "telefone": "6123456789"
   },
   {
       "nome": "Renata",
       "email": "renata.ferreira@yahoo.com.br",
       "cpf": "23309887022",
-      "senha_cadastro": "12345678",
+      "senha": "12345678",
       "telefone": "2789012345"
   }
 ]
 
-//filmes
 
-[
+export const filmes = [
   {
       "nome": "A Freira 2",
       "sinopse": "A Freira 2 é o segundo capítulo da história de A Freira (2018), que faz parte do universo da franquia Invocação do Mal. No primeiro filme, após uma freira cometer suicídio em um convento na Romênia, o Vaticano envia o atormentado Padre Burke (Demián Bichir) e uma noviça, Irmã Irene (Taissa Farmiga), para investigar o ocorrido. Arriscando suas vidas, a fé e até suas almas, os dois descobrem um segredo profano no local, confrontando uma força do mal que assume a forma de uma freira demoníaca e transforma o convento em um campo de batalha espiritual. Agora, na continuação, anos após os acontecimentos do primeiro filme, um padre é assassinado e parece que o mal está se espalhando por toda a região. Novamente acompanhamos a Irmã Irene quando, após pensar ter escapado por pouco de Valak, a entidade demoníaca, ela é forçada a enfrentar o poderoso e macabro inimigo mais uma vez.",
@@ -92,8 +88,8 @@
   }
 ]
 
-//preco
-[
+
+export const preco = [
     {
       "dia_semana": "seg",
       "valor": 12.00
@@ -125,8 +121,8 @@
   ]
 
   
-  //salas
-  [
+
+export const salas = [
     {
       "capacidade": 70,
       "nome_sala": "Sala Diversão",
@@ -144,6 +140,7 @@
     }
   ]
 
+//  ???
 //acho q nn precisa de uma tabela pra poltrona na real, 
 //ja q tiramos o tipo da poltrona ela ficaria igual pra todas as inserções
 //e isso pode ser feito no front

@@ -83,6 +83,18 @@ class UserController {
             res.status(500).send({ message: err.message })
         }
     }
+    static async delete(req, res) {
+        try {
+            const id = req.id
+
+            await UserService.delete(id)
+
+            res.send("deleted")
+        } catch (err) {
+            console.error(err)
+            res.status(500).send({ message: err.message })
+        }
+    }
 }
 
 export default UserController

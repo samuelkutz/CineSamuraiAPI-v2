@@ -20,7 +20,7 @@ const UserSchema = new mongoose.Schema({
     senha: {
         type: String,
         required: true,
-        select: false // this is for the DB so it DOES NOT return the password for anyone
+        select: false // this is for the DB so it DOES NOT return the password 
     },
     telefone: {
         type: String,
@@ -31,7 +31,7 @@ const UserSchema = new mongoose.Schema({
 })
 
 UserSchema.pre("save", async function(next) {
-    this.senha = await bcrypt.hash(this.senha, 10) // basic hash encryption
+    this.senha = await bcrypt.hash(this.senha, 10) // basic hash encryption (needs to be async)
     next()
 })
 
