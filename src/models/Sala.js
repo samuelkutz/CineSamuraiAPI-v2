@@ -4,10 +4,10 @@ const PoltronaSchema = new mongoose.Schema({
     numero: {
         type: Number,
         required: true
-    },
+    }, 
     id_sala: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Salas",     
+        ref: "Salas",
         required: true
     },
     tipo: {

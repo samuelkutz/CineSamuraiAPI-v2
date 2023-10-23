@@ -7,7 +7,7 @@ class AuthService{
     }
 
     static generateToken(id) {
-        jwt.sign({ id: id }, procces.env.SECRET_JWT, { expiresIn: 86400 }) // token expires in 24h
+        return jwt.sign({ id: id }, process.env.SECRET_JWT, { expiresIn: 86400 }) // token expires in 24h
     }
 }
 

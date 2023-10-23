@@ -9,19 +9,18 @@ class AuthController {
             const user = await AuthService.findByEmail(email) // findByEmail returns user object with the password included
 
             if (!user) {
-                res.status(404).send({ message: "Usuário ou senha não encontrados" })
+                return res.status(404).send({ message: "Usuário ou senha não encontrados" })
             }
 
             const isValidSenha = await bcrypt.compare(senha, user.senha)
 
             if (!isValidSenha) {
-                res.status(404).send({ message: "Usuário ou senha não encontrados" })
+                return res.status(404).send({ message: "Usuário ou senha não encontrados" })
             }
 
-            const token = AuthService.generateToken(user.id) //synchronous
+            const token = AuthService.generateToken(user._id) //synchronous
 
-            res.send({ token: token }) 
-            
+            res.status(200).send({ token: token }) 
         } catch (err) {
             console.log(err)
             res.status(500).send({ message: err })
