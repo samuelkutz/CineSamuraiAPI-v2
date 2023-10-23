@@ -17,15 +17,7 @@ class FilmeController{
 
             res.status(201).send({
                 message: "Filme adicionado com sucesso",
-                filme: {
-                    id: filme._id,
-                    nome: filme.nome,
-                    sinopse: filme.sinopse,
-                    url_imagem_capa: filme.url_imagem_capa,
-                    linguagem_original: filme.linguagem_original,
-                    classificacao_indicativa: filme.classificacao_indicativa,
-                    duracao: filme.duracao
-                }
+                id_filme: filme._id
             })
         } catch (err) {
             console.log(err)

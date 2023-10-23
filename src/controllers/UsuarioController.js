@@ -9,7 +9,7 @@ class UsuarioController {
                 return res.status(400).send({ message: "Preencha todos os campos" })
             }
 
-            const user = await UsuarioService.create(req.body) // connecting to MongoDB and creating an user (generates its _id)
+            user = await UsuarioService.create(req.body) // connecting to MongoDB and creating an user (generates its _id)
 
             if (!user) {
                 return res.status(400).send({ message: "Erro ao criar usuário" })
@@ -17,13 +17,7 @@ class UsuarioController {
 
             res.status(201).send({
                 message: "Usuário criado com sucesso",
-                usuario: {
-                    id: user._id,
-                    nome: user.nome,
-                    email: user.email,
-                    cpf: user.cpf,
-                    telefone: user.telefone
-                }
+                id_usuario: user._id
             })
         } catch (err) {
             console.log(err)
@@ -66,7 +60,7 @@ class UsuarioController {
             }
             
             const { id, user } = req // user will be used soon
-    
+
             await UsuarioService.update(
                 id, 
                 nome, 
@@ -76,7 +70,7 @@ class UsuarioController {
                 telefone
             )
     
-            res.send({message: "Usuário atualizado com sucesso!"})    
+            res.send({ message: "Usuário atualizado com sucesso!" })    
         } catch (err) {
             res.status(500).send({ message: err.message })
         }

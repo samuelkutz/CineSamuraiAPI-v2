@@ -1,4 +1,4 @@
-import { Usuario } from "../models/Usuario.js";
+import Usuario from "../models/Usuario.js";
 
 class UsuarioService {
     static create(body) {
@@ -23,7 +23,8 @@ class UsuarioService {
     ) {
         return Usuario.findOneAndUpdate(
             { _id: id }, //inside MongoDB, the id is called _id
-            { nome, email, cpf, senha, telefone }
+            { nome, email, cpf, senha, telefone },
+            { upsert: true }
         )
     }
 

@@ -1,4 +1,4 @@
-import { Usuario } from "../models/Usuario.js"
+import Usuario from "../models/Usuario.js"
 import jwt from "jsonwebtoken"
 
 class AuthService{

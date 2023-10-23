@@ -5,9 +5,9 @@
   "version": "1.0.0",
   "main": "app.js",
   "scripts": {
-    "start": "node ./app.js",
     "dev": "nodemon ./app.js",
-    "populate": "node ./src/database/populate.js"
+    "start": "node ./app.js",
+    "database": "node ./src/database/populate.js"
   },
   "repository": {
     "type": "git",

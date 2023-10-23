@@ -276,7 +276,7 @@ export const salas = [
 
 //ingresso
 //nesse caso o id_poltrona sumiria
-[
+export const ingresso = [
   {
       "tipo_ingresso": true,
       "id_preco_fk": 7,

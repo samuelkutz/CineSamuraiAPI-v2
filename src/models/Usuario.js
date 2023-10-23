@@ -35,4 +35,6 @@ UsuarioSchema.pre("save", async function(next) {
     next()
 })
 
-export const Usuario = mongoose.model("Usuario", UsuarioSchema)
+const Usuario = mongoose.model("Usuario", UsuarioSchema)
+
+export default Usuario

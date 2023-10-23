@@ -1,4 +1,4 @@
-import { Filme } from "../models/Filme.js";
+import Filme from "../models/Filme.js";
 
 class FilmeService {
     static create(body) {
