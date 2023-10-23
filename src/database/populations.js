@@ -163,7 +163,7 @@ export const salas = [
 //   ]
 
 
-//sessao_cimema
+//sessao_cinema
 //nesse caso n teria id_poltrona
 [
   {

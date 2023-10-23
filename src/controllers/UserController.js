@@ -11,7 +11,6 @@ class UserController {
 
             const user = await UserService.create(req.body) // connecting to MongoDB and creating an user (generates its _id)
 
-
             if (!user) {
                 return res.status(400).send({ message: "Erro ao criar usuário" })
             }
@@ -20,11 +19,10 @@ class UserController {
                 message: "Usuário criado com sucesso",
                 user: {
                     id: user._id,
-                    nome,
-                    email,
-                    cpf,
-                    senha,
-                    telefone
+                    nome: user.nome,
+                    email: user.email,
+                    cpf: user.cpf,
+                    telefone: user.telefone
                 }
             })
         } catch (err) {
@@ -89,7 +87,9 @@ class UserController {
 
             await UserService.delete(id)
 
-            res.send("deleted")
+            res.status(200).send({ 
+                message: "Usuário deletado do banco de dados", 
+            })
         } catch (err) {
             console.error(err)
             res.status(500).send({ message: err.message })
