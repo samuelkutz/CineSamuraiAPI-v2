@@ -34,4 +34,4 @@ const SalaSchema = new mongoose.Schema({
 
 const Sala = mongoose.model("Sala", SalaSchema)
 
-expor
+export default Sala
