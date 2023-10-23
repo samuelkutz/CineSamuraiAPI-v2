@@ -1,9 +1,12 @@
 import express from "express"
 import cors from "cors"
 import { config } from "dotenv"
+
 import connectDatabase from "./src/database/database.js"
-import userRoute from "./src/routes/userRoute.js"
-import authRoute from "./src/routes/authRoute.js"
+
+import usuarioRouter from "./src/routes/usuarioRouter.js"
+import authRouter from "./src/routes/authRouter.js"
+import filmesRouter from "src/routes/filmesRouter.js"
 
 config()
 
@@ -17,8 +20,9 @@ connectDatabase()
 app.use(express.json())
 app.use(cors())
 
-app.use("/users", userRoute)
-app.use("/auth", authRoute)
+app.use("/usuarios", usuarioRouter)
+app.use("/auth", authRouter)
+app.use("/filmes", filmesRouter)
 
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost/${port}`)
