@@ -88,38 +88,37 @@ export const filmes = [
   }
 ]
 
-
-export const preco = [
-    {
-      "dia_semana": "seg",
-      "valor": 12.00
-    },
-    {
-      "dia_semana": "ter",
-      "valor": 15.00
-    },
-    {
-      "dia_semana": "qua",
-      "valor": 15.00
-    },
-    {
-      "dia_semana": "qui",
-      "valor": 16.00
-    },
-    {
-      "dia_semana": "sex",
-      "valor": 26.00
-    },
-    {
-      "dia_semana": "sab",
-      "valor": 26.00
-    },
-    {
-      "dia_semana": "dom",
-      "valor": 26.00
-    }
-  ]
-
+// calculado no front
+// export const preco = [
+//     {
+//       "dia_semana": "seg",
+//       "valor": 12.00
+//     },
+//     {
+//       "dia_semana": "ter",
+//       "valor": 15.00
+//     },
+//     {
+//       "dia_semana": "qua",
+//       "valor": 15.00
+//     },
+//     {
+//       "dia_semana": "qui",
+//       "valor": 16.00
+//     },
+//     {
+//       "dia_semana": "sex",
+//       "valor": 26.00
+//     },
+//     {
+//       "dia_semana": "sab",
+//       "valor": 26.00
+//     },
+//     {
+//       "dia_semana": "dom",
+//       "valor": 26.00
+//     }
+// ]
   
 
 export const salas = [

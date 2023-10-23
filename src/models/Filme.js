@@ -25,6 +25,8 @@ const FilmeSchema = new mongoose.Schema({
         type: String,
         require: true
     }
+}, {
+    versionKey: false
 })
 
 const Filme = mongoose.model("Filme", FilmeSchema)
