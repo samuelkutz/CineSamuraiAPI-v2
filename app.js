@@ -6,7 +6,7 @@ import connectDatabase from "./src/database/database.js"
 
 import usuarioRouter from "./src/routes/usuarioRouter.js"
 import authRouter from "./src/routes/authRouter.js"
-import filmesRouter from "src/routes/filmesRouter.js"
+import filmeRouter from "./src/routes/filmeRouter.js"
 
 config()
 
@@ -22,7 +22,7 @@ app.use(cors())
 
 app.use("/usuarios", usuarioRouter)
 app.use("/auth", authRouter)
-app.use("/filmes", filmesRouter)
+app.use("/filmes", filmeRouter)
 
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost/${port}`)

@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt"
-import AuthService from "../services/authService.js"
+import AuthService from "../services/AuthService.js"
 
 class AuthController {
     static async login(req, res) {

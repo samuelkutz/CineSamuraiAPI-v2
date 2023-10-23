@@ -17,7 +17,7 @@ class UsuarioController {
 
             res.status(201).send({
                 message: "Usuário criado com sucesso",
-                user: {
+                usuario: {
                     id: user._id,
                     nome: user.nome,
                     email: user.email,
@@ -27,7 +27,7 @@ class UsuarioController {
             })
         } catch (err) {
             console.log(err)
-            res.status(500).send( { message: err.message })
+            res.status(500).send({ message: err.message })
         }
     }
 
