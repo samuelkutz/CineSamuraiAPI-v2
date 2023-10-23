@@ -12,7 +12,6 @@ const FilmeSchema = new mongoose.Schema({
     url_imagem_capa: {
         type: String,
         require: true
-
     },
     linguagem_original: {
         type: String,
