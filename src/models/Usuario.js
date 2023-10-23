@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt"
 
-const UserSchema = new mongoose.Schema({
+const UsuarioSchema = new mongoose.Schema({
     nome: {
         type: String,
         required: true
@@ -30,9 +30,9 @@ const UserSchema = new mongoose.Schema({
     versionKey: false
 })
 
-UserSchema.pre("save", async function(next) {
+UsuarioSchema.pre("save", async function(next) {
     this.senha = await bcrypt.hash(this.senha, 10) // basic hash encryption (needs to be async)
     next()
 })
 
-export const User = mongoose.model("User", UserSchema)
+export const Usuario = mongoose.model("Usuario", UsuarioSchema)

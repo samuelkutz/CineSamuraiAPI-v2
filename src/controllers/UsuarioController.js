@@ -1,6 +1,6 @@
-import UserService from "../services/UserService.js"
+import UsuarioService from "../services/UsuarioService.js"
 
-class UserController {
+class UsuarioController {
     static async create(req, res) {
         try {
             const { nome, email, cpf, senha, telefone } = req.body
@@ -9,7 +9,7 @@ class UserController {
                 return res.status(400).send({ message: "Preencha todos os campos" })
             }
 
-            const user = await UserService.create(req.body) // connecting to MongoDB and creating an user (generates its _id)
+            const user = await UsuarioService.create(req.body) // connecting to MongoDB and creating an user (generates its _id)
 
             if (!user) {
                 return res.status(400).send({ message: "Erro ao criar usuário" })
@@ -33,7 +33,7 @@ class UserController {
 
     static async findAll(req, res) {
         try {
-            const users = await UserService.findAll()
+            const users = await UsuarioService.findAll()
 
             if (users.length === 0) {
                 return res.status(400).send({ message: "Não há usuários registrados" })
@@ -67,7 +67,7 @@ class UserController {
             
             const { id, user } = req // user will be used soon
     
-            await UserService.update(
+            await UsuarioService.update(
                 id, 
                 nome, 
                 email, 
@@ -85,7 +85,7 @@ class UserController {
         try {
             const id = req.id
 
-            await UserService.delete(id)
+            await UsuarioService.delete(id)
 
             res.status(200).send({ 
                 message: "Usuário deletado do banco de dados", 
@@ -97,4 +97,4 @@ class UserController {
     }
 }
 
-export default UserController
+export default UsuarioController
