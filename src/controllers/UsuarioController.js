@@ -4,12 +4,12 @@ class UsuarioController {
     static async create(req, res) {
         try {
             const { nome, email, cpf, senha, telefone } = req.body
-
+            console.log(req.body)
             if (!nome || !email || !cpf || !senha || !telefone) {
                 return res.status(400).send({ message: "Preencha todos os campos" })
             }
 
-            user = await UsuarioService.create(req.body) // connecting to MongoDB and creating an user (generates its _id)
+            const user = await UsuarioService.create(req.body) // connecting to MongoDB and creating an user (generates its _id)
 
             if (!user) {
                 return res.status(400).send({ message: "Erro ao criar usuário" })
