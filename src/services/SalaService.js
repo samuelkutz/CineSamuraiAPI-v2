@@ -1,4 +1,4 @@
-import Sala from "../models/Sala";
+import Sala from "../models/Sala.js";
 
 class SalaService{
     static create(body) {
@@ -26,6 +26,18 @@ class SalaService{
 
     static delete(id) {
         return Sala.findByIdAndDelete(id)
+    }
+
+    static findPoltrona(nome_sala, coordenada) {
+        const sala = Sala.findById(nome_sala)
+
+        const poltronas = sala.poltronas
+        
+        for (let i=0; i < sala.poltronas; i++) {s
+            if (poltronas[i].coordenada == coordenada) {
+                return poltronas[i]
+            }
+        }
     }
 }
 

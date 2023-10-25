@@ -9,7 +9,7 @@ class UsuarioController {
                 return res.status(400).send({ message: "Preencha todos os campos" })
             }
 
-            user = await UsuarioService.create(req.body) // connecting to MongoDB and creating an user (generates its _id)
+            const user = await UsuarioService.create(req.body) // connecting to MongoDB and creating an user (generates its _id)
 
             if (!user) {
                 return res.status(400).send({ message: "Erro ao criar usuário" })

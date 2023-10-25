@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import UsuarioService from "../services/UsuarioService.js";
 import FilmeService from "../services/FilmeService.js";
+import SalaService from "../services/SalaService.js";
 
 class GlobalMiddlewares {
     static validId(req, res, next) {
@@ -51,6 +52,27 @@ class GlobalMiddlewares {
             // saving these infos in the req so we dont have to ask again to the DB 
             req.id = id
             req.filme = filme
+
+            next()
+        } catch (err) {
+            console.log(err)
+            res.status(500).send({ message: err.message })
+        }
+    }
+
+    static async validSala(req, res, next) {
+        try {
+            const id = req.params.id
+
+            const sala = await SalaService.findById(id)
+
+            if (!sala) {
+                return res.status(400).send({ message: "Sala não encontrada" })
+            }
+
+            // saving these infos in the req so we dont have to ask again to the DB 
+            req.id = id
+            req.sala = sala
 
             next()
         } catch (err) {

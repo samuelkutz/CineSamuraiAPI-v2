@@ -1,13 +1,12 @@
 import mongoose from "mongoose";
 
+/////////////////////////
+//MUDAR PARA COORDENADA//
+/////////////////////////
+
 const PoltronaSchema = new mongoose.Schema({
-    numero: {
-        type: Number,
-        required: true
-    }, 
-    id_sala: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Salas",
+    coordenada: {
+        type: String,
         required: true
     },
     tipo: {
@@ -15,7 +14,7 @@ const PoltronaSchema = new mongoose.Schema({
         required: true
     },
     disponivel: {
-        type: boolean,
+        type: Boolean,
         default: true ,
         required: true
     }
@@ -30,6 +29,8 @@ const SalaSchema = new mongoose.Schema({
         unique: true
     },
     poltronas: [PoltronaSchema]
+}, {
+    versionKey: false
 })
 
 const Sala = mongoose.model("Sala", SalaSchema)

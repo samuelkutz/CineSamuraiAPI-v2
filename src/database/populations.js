@@ -87,191 +87,40 @@ export const filmes = [
       "duracao": "154 min"
   }
 ]
-
-// calculado no front
-// export const preco = [
-//     {
-//       "dia_semana": "seg",
-//       "valor": 12.00
-//     },
-//     {
-//       "dia_semana": "ter",
-//       "valor": 15.00
-//     },
-//     {
-//       "dia_semana": "qua",
-//       "valor": 15.00
-//     },
-//     {
-//       "dia_semana": "qui",
-//       "valor": 16.00
-//     },
-//     {
-//       "dia_semana": "sex",
-//       "valor": 26.00
-//     },
-//     {
-//       "dia_semana": "sab",
-//       "valor": 26.00
-//     },
-//     {
-//       "dia_semana": "dom",
-//       "valor": 26.00
-//     }
-// ]
-  
-
 export const salas = [
-    {
-      "capacidade": 70,
-      "nome_sala": "Sala Diversão",
-      "quantidade_poltronas": 100
-    },
-    {
-      "capacidade": 100,
-      "nome_sala": "Sala Principal",
-      "quantidade_poltronas": 100
-    },
-    {
-      "capacidade": 80,
-      "nome_sala": "Sala Luz",
-      "quantidade_poltronas": 100
-    }
-  ]
-
-//  ???
-//acho q nn precisa de uma tabela pra poltrona na real, 
-//ja q tiramos o tipo da poltrona ela ficaria igual pra todas as inserções
-//e isso pode ser feito no front
-// [
-//     {
-//       "disponibilidade": true
-//     },
-//     {
-//       "disponibilidade": true
-//     },
-//     {
-//       "disponibilidade": true
-//     },
-//     {
-//       "disponibilidade": true
-//     },
-//     {
-//       "disponibilidade": true
-//     }
-//   ]
-
-
-//sessao_cinema
-//nesse caso n teria id_poltrona
-[
   {
-    "id_filme_fk": 1,
-    "id_sala_fk": 1,
-    "xd_2d_3d": "2D",
-    "id_preco_fk": 1,
-    // "id_poltrona_fk": 4
+      nome: 'Sala Diversão',
+      poltronas: gerarPoltronas()
   },
   {
-    "id_filme_fk": 2,
-    "id_sala_fk": 2,
-    "xd_2d_3d": "3D",
-    "id_preco_fk": 2,
-    // "id_poltrona_fk": 3
+      nome: 'Sala Principal',
+      poltronas: gerarPoltronas()
   },
   {
-    "id_filme_fk": 3,
-    "id_sala_fk": 3,
-    "xd_2d_3d": "2D",
-    "id_preco_fk": 3,
-    // "id_poltrona_fk": 5
-  },
-  {
-    "id_filme_fk": 4,
-    "id_sala_fk": 2,
-    "xd_2d_3d": "3D",
-    "id_preco_fk": 4,
-    // "id_poltrona_fk": 2
-  },
-  {
-    "id_filme_fk": 5,
-    "id_sala_fk": 3,
-    "xd_2d_3d": "2D",
-    "id_preco_fk": 5,
-    // "id_poltrona_fk": 4
-  },
-  {
-    "id_filme_fk": 6,
-    "id_sala_fk": 1,
-    "xd_2d_3d": "3D",
-    "id_preco_fk": 6,
-    // "id_poltrona_fk": 5
-  },
-  {
-    "id_filme_fk": 1,
-    "id_sala_fk": 3,
-    "xd_2d_3d": "2D",
-    "id_preco_fk": 7,
-    // "id_poltrona_fk": 5
-  },
-  {
-    "id_filme_fk": 2,
-    "id_sala_fk": 3,
-    "xd_2d_3d": "3D",
-    "id_preco_fk": 1,
-    // "id_poltrona_fk": 2
-  },
-  {
-    "id_filme_fk": 3,
-    "id_sala_fk": 2,
-    "xd_2d_3d": "2D",
-    "id_preco_fk": 2,
-    // "id_poltrona_fk": 4
-  },
-  {
-    "id_filme_fk": 4,
-    "id_sala_fk": 2,
-    "xd_2d_3d": "3D",
-    "id_preco_fk": 3,
-    // "id_poltrona_fk": 3
-  },
-  {
-    "id_filme_fk": 5,
-    "id_sala_fk": 3,
-    "xd_2d_3d": "2D",
-    "id_preco_fk": 4,
-    // "id_poltrona_fk": 5
-  },
-  {
-    "id_filme_fk": 6,
-    "id_sala_fk": 2,
-    "xd_2d_3d": "3D",
-    "id_preco_fk": 5,
-    // "id_poltrona_fk": 2
-  },
-  {
-    "id_filme_fk": 1,
-    "id_sala_fk": 2,
-    "xd_2d_3d": "2D",
-    "id_preco_fk": 6,
-    // "id_poltrona_fk": 5
-  },
-  {
-    "id_filme_fk": 2,
-    "id_sala_fk": 2,
-    "xd_2d_3d": "3D",
-    "id_preco_fk": 7,
-    // "id_poltrona_fk": 3
-  },
-  {
-    "id_filme_fk": 3,
-    "id_sala_fk": 1,
-    "xd_2d_3d": "2D",
-    "id_preco_fk": 1,
-    // "id_poltrona_fk": 5
+      nome: 'Sala Luz',
+      poltronas: gerarPoltronas()
   }
-]
+];
 
+// Função para gerar poltronas com base na capacidade especificada
+function gerarPoltronas() {
+  const poltronas = [];
+  const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const numPoltronasPorFila = 10;
+
+  for (let fila = 1; fila <= 10; fila++) {
+      for (let numero = 1; numero <= numPoltronasPorFila; numero++) {
+          const letra = letras.charAt(numero - 1);
+          const coordenada = `${letra}${fila}`;
+          const tipo = 'Normal';
+          const disponivel = true;
+          
+          poltronas.push({ coordenada, tipo, disponivel }); // poltrona default 
+      }
+  }
+
+  return poltronas
+}
 
 //ingresso
 //nesse caso o id_poltrona sumiria
