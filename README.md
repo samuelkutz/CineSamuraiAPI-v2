@@ -42,9 +42,9 @@ Siga os passos abaixo para executar a API localmente em seu ambiente de desenvol
    _OBS: Estamos cientes dos problemas de segurança desta ação._
 
    ```bash
-   PORT="3000"
-    DATABASE_URI="mongodb+srv://admin:sup9rXRwTPkppoLu@cinesamurai.hsmeuxb.mongodb.net/?retryWrites=true&w=majority"
-    SECRET_JWT="64cd760a6f1b8327b9f9d8e262dd7a69"
+      PORT="3000"
+      DATABASE_URI="mongodb+srv://admin:sup9rXRwTPkppoLu@cinesamurai.hsmeuxb.mongodb.net/?retryWrites=true&w=majority"
+      SECRET_JWT="64cd760a6f1b8327b9f9d8e262dd7a69"
    ```
 
 4. **Inicie o Servidor:**
