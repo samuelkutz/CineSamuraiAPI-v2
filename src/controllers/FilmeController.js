@@ -10,7 +10,7 @@ class FilmeController{
             }
 
             const filme = await FilmeService.create(req.body)
-
+        
             if (!filme) {
                 res.status(400).send({ message: "Erro adicionar filme" })
             }
@@ -29,7 +29,7 @@ class FilmeController{
         try {
             const filmes = await FilmeService.findAll()
 
-            if (users.length === 0) {
+            if (filmes.length === 0) {
                 return res.status(400).send({ message: "Não há filmes registrados" })
             }
 

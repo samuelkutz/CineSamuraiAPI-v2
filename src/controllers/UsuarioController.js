@@ -4,7 +4,6 @@ class UsuarioController {
     static async create(req, res) {
         try {
             const { nome, email, cpf, senha, telefone } = req.body
-            console.log(req.body)
             
             if (!nome || !email || !cpf || !senha || !telefone) {
                 return res.status(400).send({ message: "Preencha todos os campos" })
@@ -73,6 +72,7 @@ class UsuarioController {
     
             res.send({ message: "Usuário atualizado com sucesso!" })    
         } catch (err) {
+            console.log(err)
             res.status(500).send({ message: err.message })
         }
     }
@@ -86,7 +86,7 @@ class UsuarioController {
                 message: "Usuário deletado do banco de dados", 
             })
         } catch (err) {
-            console.error(err)
+            console.log(err)
             res.status(500).send({ message: err.message })
         }
     }
