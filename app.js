@@ -16,6 +16,14 @@ const port = process.env.PORT || 3000
 
 console.log("Conectando ao banco de dados...")
 connectDatabase()
+.then(() =>{
+    console.log("Conectado ao MongoDB!")
+    app.listen(port, () => {
+        console.log(`Servidor rodando em http://localhost/${port}`)
+    })
+
+})
+.catch((err) => console.log(`Erro ao conectar com MongoDB: ${err}`));
 
 app.use(express.json())
 app.use(cors())
@@ -24,6 +32,3 @@ app.use("/usuarios", usuarioRouter)
 app.use("/auth", authRouter)
 app.use("/filmes", filmeRouter)
 app.use("/salas", salaRouter)
-app.listen(port, () => {
-    console.log(`Servidor rodando em http://localhost/${port}`)
-})
