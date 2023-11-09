@@ -37,14 +37,12 @@ Siga os passos abaixo para executar a API localmente em seu ambiente de desenvol
 
 3. **Configure o Arquivo `.env`:**
    
-   Certifique-se de configurar o arquivo `.env` na raiz do projeto com as variáveis de ambiente necessárias, conforme mencionado no README. Como tivemos dificuldade no deploy, aqui está o .env que você terá que criar.
-
-   _OBS: Estamos cientes dos problemas de segurança desta ação._
+   Certifique-se de configurar o arquivo `.env` na raiz do projeto com as variáveis de ambiente necessárias também, elas devem seguir esse estilo:
 
    ```bash
-      PORT="3000"
-      DATABASE_URI="mongodb+srv://admin:sup9rXRwTPkppoLu@cinesamurai.hsmeuxb.mongodb.net/?retryWrites=true&w=majority"
-      SECRET_JWT="64cd760a6f1b8327b9f9d8e262dd7a69"
+      PORT="PORTA QUE DESEJA HOSPEDAR A API"
+      DATABASE_URI="URI DO BANCO DE DADOS MONGODB"
+      SECRET_JWT="SEGREDO DOS TOKEND JWT"
    ```
 
 4. **Inicie o Servidor:**
